@@ -1,6 +1,0 @@
-elements-api.com {
-   reverse_proxy elements-api:8080
-}
-  
-
-
