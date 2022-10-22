@@ -2,13 +2,13 @@ import { Request, Response, NextFunction } from "express";
 import { AnyZodObject, ZodError } from "zod";
 
 
-function validate<T extends AnyZodObject>(schema:T,req:Request,res:Response,next:NextFunction){
+
+const validate=<T extends AnyZodObject>(schema:T)=>(req:Request,res:Response,next:NextFunction)=>{
+   
     try{
-      schema.parse({
-        body: req.body,
-        query: req.query,
-        params: req.params,
-      });
+       
+      schema.parse(req.params);
+     
       next()
     }
     catch(e){
